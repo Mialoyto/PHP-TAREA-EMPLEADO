@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h2>JUGAR CON LOS COLORES</h2>
+  <div style="width: 70%; margin: auto;">
+    <canvas id="lienzo"></canvas>
+
+  </div>
+
+
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">  </script>
+  <script>
+    // contexto = lienzo donde pintaremos / renderizaremos
+    const contexto = document.querySelector('#lienzo');
+    // CONTENEDOR DE DAOS (ARRAY DE OBJETOS)
+    // consulta a la BD retornará un objeto similar
+    const equipos = [
+      {pais: "Argentina" ,puntos: 15 },
+      {pais: "Uruguay" ,puntos: 13 },
+      {pais: "Colombia" ,puntos: 12 },
+      {pais: "Venezuela" ,puntos: 9 },
+      {pais: "Ecuador" ,puntos: 8 },
+      {pais: "Brasil" ,puntos: 7 }
+    ]
+
+
+
+
+      // chart(referencia_canvas, configuracion_grafico)
+    const grafico = new Chart(contexto, {
+      type: 'bar',
+      //juego de datos
+      data: {
+        // usar el tag pais
+        labels: equipos.map(equipo => equipo.pais),
+        datasets : [{
+          // propiedad indespensable 'data' usa tag puntos
+          label: "2022",
+          data: equipos.map(equipo => equipo.puntos),
+        }]
+      },
+      options :{
+        scales : {
+          y :{
+            max : 60,
+            min: 0
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

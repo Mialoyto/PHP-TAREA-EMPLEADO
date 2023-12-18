@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="width: 70%; margin: auto;">
+    <canvas id="lienzo"></canvas>
+    <!-- https://htmlcolorcodes.com/  -->
+    <!-- https://www.chartjs.org/ -->
+  </div>
+
+
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">  </script>
+  <script>
+    // contexto = lienzo donde pintaremos / renderizaremos
+    const contexto = document.querySelector('#lienzo');
+
+      // chart(referencia_canvas, configuracion_grafico)
+    const grafico = new Chart(contexto, {
+      type: 'bar',
+      data: {
+        labels: ["PHP", "JavaScript", "Java","python"],
+        datasets : [{
+          // propiedad indespensable 'data'
+          label: "2022",
+          data: [45,55,35,60]
+        },{
+          label : "2023",
+          data: [40,65,35,55]
+      }]
+      }
+    });
+  </script>
+</body>
+
+</html>
